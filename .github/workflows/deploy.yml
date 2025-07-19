@@ -43,3 +43,13 @@ jobs:
             sudo mv /home/${{ secrets.VM_USER }}/curl-games/nginx-snake.conf /etc/nginx/sites-available/games.ngutierrezp.cl
             sudo ln -sf /etc/nginx/sites-available/games.ngutierrezp.cl /etc/nginx/sites-enabled/games.ngutierrezp.cl
             sudo nginx -t && sudo systemctl reload nginx
+
+      - name: Generate games-list.txt on VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd /home/${{ secrets.VM_USER }}/curl-games
+            find . -mindepth 2 -maxdepth 2 -name '*.sh' | awk -F'/' '{print $(NF-1)}' | sort | uniq > games-list.txt

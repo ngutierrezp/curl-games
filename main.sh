@@ -57,13 +57,18 @@ EOF
     echo -e "${RESET}\n"
     games=()
     i=1
-    for dir in */; do
-        game="${dir%/}"
-        if [ -f "$game/$game.sh" ]; then
-            games+=("$game")
-            echo -e "${YELLOW}$i)${RESET} $game"
-            ((i++))
-        fi
+    # Download the latest games list from the server
+    if command -v curl >/dev/null 2>&1; then
+        mapfile -t games < <(curl -fsSL http://games.ngutierrezp.cl/games-list.txt)
+    elif command -v wget >/dev/null 2>&1; then
+        mapfile -t games < <(wget -qO- http://games.ngutierrezp.cl/games-list.txt)
+    else
+        echo "curl or wget is required to fetch the games list." >&2
+        exit 1
+    fi
+    for game in "${games[@]}"; do
+        echo -e "${YELLOW}$i)${RESET} $game"
+        ((i++))
     done
     echo -e "${YELLOW}$i)${RESET} Open Repository"
     echo -e "${YELLOW}0)${RESET} Exit"
