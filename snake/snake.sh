@@ -74,11 +74,11 @@ EOF
 
 open_repository() {
     clear
-    echo -e "${BLUE}Repository: https://github.com/ngutierrezp/curl-games${RESET}"
+    echo -e "${BLUE}Repository: https://github.com/ngutierrezp/curl-game/tree/main/snake${RESET}"
     if command -v open >/dev/null 2>&1; then
-        open "https://github.com/ngutierrezp/curl-games"
+        open "https://github.com/ngutierrezp/curl-game/tree/main/snake"
     elif command -v xdg-open >/dev/null 2>&1; then
-        xdg-open "https://github.com/ngutierrezp/curl-games"
+        xdg-open "https://github.com/ngutierrezp/curl-game/tree/main/snake"
     fi
     echo -e "\nPress any key to return to the menu..."
     read -n1
