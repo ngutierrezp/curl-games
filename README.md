@@ -1,5 +1,8 @@
 # Curl Games 🎮
 
+<img width="641" height="564" alt="image" src="https://github.com/user-attachments/assets/9822467c-8159-473e-9832-8dbdad31a626" />
+
+
 A collection of classic and modern terminal games written in Bash, ready to play with a single command. Each game is self-contained in its own folder, with a script and README for easy use and documentation.
 
 ---
