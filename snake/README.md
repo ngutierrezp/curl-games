@@ -23,7 +23,7 @@ Play Snake directly in your terminal, no external dependencies required! This cl
 ### 1. Run the game directly from your terminal:
 
 ```bash
-curl -sSL games.ngutierrezp.cl/snake | bash
+bash <(curl -s games.ngutierrezp.cl/snake)
 ```
 
 Or download the script manually:
