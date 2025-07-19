@@ -1,0 +1,45 @@
+name: Deploy Games
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy all files to VM via SSH
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "*"
+          target: "/home/${{ secrets.VM_USER }}/curl-games/"
+          rm: false
+
+      - name: Set permissions for all .sh files
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            find /home/${{ secrets.VM_USER }}/curl-games -type f -name '*.sh' -exec chmod 755 {} +
+            sudo chown -R ${{ secrets.VM_USER }}: /home/${{ secrets.VM_USER }}/curl-games
+
+      - name: Move nginx config and reload nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            sudo mv /home/${{ secrets.VM_USER }}/curl-games/nginx-snake.conf /etc/nginx/sites-available/games.ngutierrezp.cl
+            sudo ln -sf /etc/nginx/sites-available/games.ngutierrezp.cl /etc/nginx/sites-enabled/games.ngutierrezp.cl
+            sudo nginx -t && sudo systemctl reload nginx

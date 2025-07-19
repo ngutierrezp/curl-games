@@ -1,0 +1,31 @@
+name: Test Game Structure
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**'
+
+jobs:
+  test-games-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate each game folder has .sh and README
+        run: |
+          fail=0
+          for d in */ ; do
+            game="${d%/}"
+            if [ -d "$game" ]; then
+              if [ ! -f "$game/$game.sh" ]; then
+                echo "❌ Missing $game/$game.sh"
+                fail=1
+              fi
+              if [ ! -f "$game/README.md" ]; then
+                echo "❌ Missing $game/README.md"
+                fail=1
+              fi
+            fi
+          done
+          if [ $fail -ne 0 ]; then exit 1; fi
