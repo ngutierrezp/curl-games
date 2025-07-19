@@ -1,5 +1,8 @@
 # 🐍 Snake Game (Bash Edition)
 
+<img width="718" height="483" alt="image" src="https://github.com/user-attachments/assets/2c716860-9711-4cd5-b7f6-078e0312b5ad" />
+
+
 Play Snake directly in your terminal, no external dependencies required! This classic game has been modernized with colors, emojis, win/game over screens, and an improved user experience. Compatible with macOS and Linux (Bash 3.2+).
 
 ---
@@ -20,13 +23,13 @@ Play Snake directly in your terminal, no external dependencies required! This cl
 ### 1. Run the game directly from your terminal:
 
 ```bash
-curl -sSL https://games.ngutierrezp.cl/snake | bash
+curl -sSL games.ngutierrezp.cl/snake | bash
 ```
 
 Or download the script manually:
 
 ```bash
-curl -O https://games.ngutierrezp.cl/snake.sh
+curl -O games.ngutierrezp.cl/snake.sh
 bash snake.sh
 ```
 
@@ -44,11 +47,7 @@ Snake Game for Bash is an improved and portable version of the classic snake gam
 
 ## 📸 Preview
 
-<!--
-Place a GIF here showing the gameplay:
-
-![Gameplay GIF](./snake-demo.gif)
--->
+![snake](https://github.com/user-attachments/assets/eb778d03-f9b1-467d-9c20-050774686e0b)
 
 ---
 
