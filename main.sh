@@ -59,9 +59,13 @@ EOF
     i=1
     # Download the latest games list from the server
     if command -v curl >/dev/null 2>&1; then
-        mapfile -t games < <(curl -fsSL http://games.ngutierrezp.cl/games-list.txt)
+        while IFS= read -r game; do
+            games+=("$game")
+        done < <(curl -fsSL http://games.ngutierrezp.cl/games-list.txt)
     elif command -v wget >/dev/null 2>&1; then
-        mapfile -t games < <(wget -qO- http://games.ngutierrezp.cl/games-list.txt)
+        while IFS= read -r game; do
+            games+=("$game")
+        done < <(wget -qO- http://games.ngutierrezp.cl/games-list.txt)
     else
         echo "curl or wget is required to fetch the games list." >&2
         exit 1
