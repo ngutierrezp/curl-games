@@ -100,7 +100,8 @@ EOF
             show_menu
         elif [ "$opt" -ge 1 ] && [ "$opt" -lt "$i" ]; then
             clear
-            bash "${games[$((opt-1))]}/${games[$((opt-1))]}.sh"
+            # execute the game by downloading the latest script from the server
+            bash <(curl -fsSL "http://games.ngutierrezp.cl/${games[$((opt-1))]}")
             echo
             read -n1 -r -p "Press any key to return to menu..."
             show_menu
