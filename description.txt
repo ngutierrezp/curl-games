@@ -1,7 +1,0 @@
-Modern Bash terminal games for everyone! Play classic games like Snake directly in your terminal with a single curl command. Fast, fun, and no installation required.
-
-- 🎮 Play instantly: `curl -fsSL https://games.ngutierrezp.cl/snake | bash`
-- 🐍 Modern Snake game with emoji visuals, robust controls, and a user-friendly menu
-- 📝 Easy to use, works on macOS and Linux
-
-Created with ❤️ by ngutierrezp
