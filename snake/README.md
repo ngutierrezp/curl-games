@@ -29,7 +29,7 @@ bash <(curl -s games.ngutierrezp.cl/snake)
 Or download the script manually:
 
 ```bash
-curl -O games.ngutierrezp.cl/snake.sh
+curl -O games.ngutierrezp.cl/snake
 bash snake.sh
 ```
 
