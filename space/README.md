@@ -1,6 +1,7 @@
 # 🚀 Space Shooter (Bash Edition)
 
-<img width="718" height="483" alt="space shooter preview" src="https://github.com/user-attachments/assets/2c716860-9711-4cd5-b7f6-078e0312b5ad" />
+<img width="505" height="122" alt="image" src="https://github.com/user-attachments/assets/b37b8ce1-2831-4ae0-8903-62ec16a72734" />
+
 
 Play Space Shooter directly in your terminal! This vertical shooter features color, ASCII art, explosions, impact warnings, and a dynamic challenge. Compatible with macOS and Linux (Bash 3.2+).
 
@@ -52,7 +53,7 @@ bash space.sh
 
 ## 📸 Preview
 
-![space-shooter](https://github.com/user-attachments/assets/eb778d03-f9b1-467d-9c20-050774686e0b)
+![Grabación de pantalla 2025-07-20 a la(s) 4 09 35 p](https://github.com/user-attachments/assets/ff6dc6c5-6ed6-4976-aa9c-bd61cbea2c54)
 
 ---
 
