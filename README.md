@@ -42,6 +42,9 @@ A collection of classic and modern terminal games written in Bash, ready to play
 - Includes GitHub Actions for automatic deployment to a VM and validation of game structure.
 - Nginx config and scripts are provided for easy HTTP serving and updates.
 
+## Contributing
+- Contributions are welcome!
+
 ---
 if you like this project, consider starring it on GitHub! ⭐
 I appreciate your support! ❤️
